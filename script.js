@@ -1,6 +1,7 @@
 var botao = document.getElementById("botao");
 botao.addEventListener("click", alertar, false );
+var nome = document.getElementById("nome");
 
 function alertar(event){
-    alert("voce clicou no botão !!!" + event);
+    alert("voce clicou no botão !!!" + nome.value);
 }
