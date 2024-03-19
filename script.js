@@ -20,6 +20,8 @@ var bairro = document.getElementById("bairro");
 
 var cidade = document.getElementById("cidade");
 
+var estado = document.getElementById("estado");
+
 
 function alertar(event){
    // alert("voce clicou no botão !!!" + nome.value);
@@ -30,5 +32,6 @@ function alertar(event){
    + "\n complemento" + complemento.value
    + "\n bairro" + bairro.value
    + "\n cidade" + cidade.value
+   + "\n estado" + estado.value
    ; 
 }
