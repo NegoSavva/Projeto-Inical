@@ -10,7 +10,7 @@ var telefone = document.getElementById("telefone");
 
 var cep = document.getElementById("cep");
 
-var logadouro = document.getElementById("logadouro");
+var logradouro = document.getElementById("logradouro");
 
 var numero = document.getElementById("numero");
 
@@ -27,21 +27,32 @@ function alertar(event){
    // alert("voce clicou no botão !!!" + nome.value);
 
    const url = `https://viacep.com.br/ws/${cep.value}/json`;
-   fetch(url)
-   .then(resposta=>resposta.json())
-   .then(dados=>{
+  fetch(url)
+  .then(function(resposta){return resposta.json()
+}).then(function(dados = dados.logradouro){
+   logradouro.value = dados.logradouro;
+   bairro.value = dados.bairro;
+   cidade.value = dados.localidade;
+   estado.value = dados.uf;
+   saidaDeDados();  // chamada da função 
+})
+.catch(function(error){
+   alert(error.message);
+});
 
-      logadouro.value = dados.logadouro;
-      bairro.value = dados.bairro;
-      cidade.value = dados.localidade;
-      estado.value = dados.uf;
 
-     
 
-   })
+  
+
+      
+
+}
+
+   
+   function saidaDeDados(){
    saida.innerText = "Nome : " + nome.value + "\n Email : " + email.value
    + "\n telefone : " + telefone.value + "\n cep" + cep.value 
-   + "\n logadouro : " + logadouro.value
+   + "\n logradouro : " + logradouro.value
    + "\n numero : " + numero.value
    + "\n complemento : " + complemento.value
    + "\n bairro : " + bairro.value
@@ -49,3 +60,4 @@ function alertar(event){
    + "\n estado : " + estado.value ; 
    
 }
+
